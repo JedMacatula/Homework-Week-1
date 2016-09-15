@@ -5,19 +5,30 @@ public class GraduationCalculator
   public static void main(String[] args)
   {
     Scanner input = new Scanner(System.in);
+    float semestersToGraduate;
     
-    System.out.println("What is your first name: ");
+    System.out.print("What is your first name: ");
     String name = input.next();
     
-    System.out.println("How many credits do you need to graduate: ");
+    System.out.print("How many total credits do you need to graduate, " + name + ": ");
     int creditsToGraduate = input.nextInt();
     
-    System.out.println("How many credits have you deleted: ");
+    System.out.print(name + ", how many credits have you completed: ");
     int creditsCompleted = input.nextInt();
     
-    System.out.println("How many credits do you take per semester: ");
+    System.out.print("How many credits do you take per semester, " + name + ": ");
     int creditsPerSemester = input.nextInt();
     
-    
+    int creditsToCompletion = creditsToGraduate - creditsCompleted;
+    semestersToGraduate = creditsToCompletion / creditsPerSemester;
+    if (creditsToGraduate % creditsPerSemester == 0)
+    {
+        System.out.print("You will need to take " + (int)semestersToGraduate + " semesters to graduate.");
+    }
+    else
+    {
+        semestersToGraduate++;
+        System.out.print("You will need to take " + (int)semestersToGraduate + " semesters to graduate.");
+    }
   }
 }
